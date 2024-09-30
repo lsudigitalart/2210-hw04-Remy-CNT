@@ -4,7 +4,7 @@ var bally = 300;
 var ballSize = 40;
 var score = 0;
 var gameState = "L1"
-var timer = 10;
+var timer = 5;
 
 function setup() {
   createCanvas (400, 400);
@@ -15,12 +15,16 @@ function draw() {
   if(gameState == "L1"){
     levelOne();
   }
-if(gameState =="L2"){
+if(gameState == "L2"){
   levelTwo();
 }
 if(gameState == "L3"){
   levelThree();
 }
+if(gameState == "L4"){
+  levelFour();
+}
+text("Chase the Ball before the timer runs out!", width/4, 20)
   text("Timer: " + timer, width/2, 60);
   text (("Score: " + score), width/2, 40);
 
@@ -29,7 +33,7 @@ if(gameState == "L3"){
   }
 
   if(timer == 0) {
-    text("END GAME", width/2, 80)
+    text("END GAME", width/2.3, height/2.3, 80)
   }
 
   print(timer);
@@ -88,6 +92,7 @@ if(score>= 10){
     ballSize = ballSize - 5;
    }
   if(score>= 15){
+    gameState = "L4";
      background(random (255));
   }
     ellipse(ballx,bally,ballSize);
@@ -96,6 +101,23 @@ if(score>= 10){
   
      //end of level 3
 
+
+     function levelFour() {
+      text ("Level 4", width/2, height-20);
+     var distToBall = dist(ballx,bally,mouseX,mouseY)
+     if(distToBall < ballSize/2){
+      ballx = random(width);
+      bally = random(height);
+      score = score + 1;
+     }
+    if(score>= 20){
+    }
+    background(color(random(255), random(255, random(225))))
+    fill(color(random(255), random(255, random(225))))
+      ellipse(ballx,bally,ballSize);}
+
+      //end of level 4
+    
      
   
 
