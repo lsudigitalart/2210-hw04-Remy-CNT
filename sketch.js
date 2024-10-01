@@ -4,7 +4,7 @@ var bally = 300;
 var ballSize = 40;
 var score = 0;
 var gameState = "L1"
-var timer = 5;
+var timer = 15;
 
 function setup() {
   createCanvas (400, 400);
